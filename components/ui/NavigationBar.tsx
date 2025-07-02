@@ -14,7 +14,6 @@ const NavigationBar = () => {
               <NavbarBrand>
                   <Link href="/">
                       <Logo />
-                      <p>{siteConfig.name}</p>
                   </Link>
               </NavbarBrand>
           </NavbarContent>
