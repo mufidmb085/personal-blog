@@ -33,7 +33,7 @@ const NavigationBar = () => {
                      </NavbarBrand>
                      <div className={"flex flex-row justify-center items-center"}>
                         <div className={"flex flex-row"}>
-                              <ul className="hidden lg:flex gap-2 justify-start">
+                              <ul className="hidden md:flex gap-2 justify-start">
                                   {siteConfig.navItems.map((item) => (
                                    <NavbarItem key={item.href}>
                                          <Button as={Link} variant={pathname === item.href || pathname.startsWith(`${item.href}/`) ? "flat" : "light"} color={"primary"} href={item.href} className={"text-md"}>{item.label}</Button>
