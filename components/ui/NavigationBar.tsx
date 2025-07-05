@@ -43,11 +43,9 @@ const NavigationBar = () => {
                     </ul>
                  </div>
              </NavbarContent>
-             <NavbarContent justify={"end"}>
-                 <div className="flex flex-row items-center justify-start gap-4">
-                     <ThemeSwitch />
-                     <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="lg:hidden" />
-                 </div>
+             <NavbarContent justify={"end"} className={"flex"}>
+                 <ThemeSwitch />
+                 <NavbarMenuToggle className="lg:hidden block" />
             </NavbarContent>
 
             <NavbarMenu>
