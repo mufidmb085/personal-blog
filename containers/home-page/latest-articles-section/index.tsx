@@ -14,10 +14,10 @@ const LatestArticlesSection = ({className}: LatestArticlesSectionProps) => {
 
 	return (
 		<section className={clsx(className)}>
-			<div className={"flex flex-col max-w-md gap-4 bg-content1 rounded-2xl p-8 place-content-center"}>
-				<div className={"flex flex-col items-center justify-center"}>
+			<div className={"flex flex-col max-w-md gap-6 bg-content1 rounded-2xl p-8 place-content-center"}>
+				<div className={"flex flex-col items-center justify-center gap-2"}>
 					<h1 className={"text-2xl text-primary font-bold uppercase text-center"}>Latest Articles</h1>
-					<h2 className={"text-md text-content1-foreground font-light items-center text-start"}>Things I&#39;ve been thinking and writing about lately</h2>
+					<h2 className={"text-lg text-content1-foreground font-light items-center text-center"}>Things I&#39;ve been thinking and writing about lately</h2>
 				</div>
 				<div className={"flex flex-col gap-4"}>
 					{articlesMetadata.slice(0, 3).map((metadata) => (
