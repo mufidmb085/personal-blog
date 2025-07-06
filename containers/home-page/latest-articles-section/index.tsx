@@ -19,7 +19,7 @@ const LatestArticlesSection = ({className}: LatestArticlesSectionProps) => {
 					<h1 className={"text-2xl text-primary font-bold uppercase text-center"}>Latest Articles</h1>
 					<h2 className={"text-md text-content1-foreground font-light items-center text-start"}>Things I&#39;ve been thinking and writing about lately</h2>
 				</div>
-				<div className={"flex flex-col"}>
+				<div className={"flex flex-col gap-4"}>
 					{articlesMetadata.slice(0, 3).map((metadata) => (
 						<ArticleCard
 							key={metadata.slug}
