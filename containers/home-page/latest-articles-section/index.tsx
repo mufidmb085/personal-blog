@@ -15,7 +15,7 @@ const LatestArticlesSection = ({className}: LatestArticlesSectionProps) => {
 
 	return (
 		<section className={clsx(className)}>
-			<Card disableRipple={true} disableAnimation={true} shadow={"sm"} allowTextSelectionOnPress={false} className={"max-w-md gap-4 bg-content1 p-6"}>
+			<Card disableRipple={true} disableAnimation={true} shadow={"sm"} allowTextSelectionOnPress={false} className={"max-w-md gap-4 bg-content1 p-6 justify-center"}>
 				<CardHeader className={"flex flex-col items-center justify-center gap-2"}>
 					<h1 className={"text-4xl text-primary font-semibold uppercase text-center"}>Latest Articles</h1>
 					<h2 className={"text-lg text-content1-foreground items-center text-center"}>Things I&#39;ve been thinking and writing about lately</h2>
