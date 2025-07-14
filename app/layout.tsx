@@ -42,9 +42,9 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center w-full">
             <NavigationBar />
-            <main className="w-full items-center justify-center min-h-screen">
+            <main className="flex items-center justify-center w-full min-h-screen">
               {children}
             </main>
             <footer className="w-full items-center justify-center">
