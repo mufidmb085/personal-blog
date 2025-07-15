@@ -1,11 +1,16 @@
-import Contact from "@/components/about/Contact";
+import clsx from "clsx";
+import ContactCard from "@/components/about/ContactCard";
 
-const AboutMeSection = () => {
+interface ContactSectionProps {
+	className?: string;
+}
+
+const ContactSection = ({className}: ContactSectionProps) => {
 	return (
-		<section className={"flex flex-col items-center justify-center gap-8 p-8 py-16 m-8 lg:m-16 max-w-screen-xl bg-content1 rounded-xl drop-shadow-2xl"}>
-			<Contact />
+		<section className={clsx(className)}>
+			<ContactCard />
 		</section>
 	)
 }
 
-export default AboutMeSection;
+export default ContactSection;
