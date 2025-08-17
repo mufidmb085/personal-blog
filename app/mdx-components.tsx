@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import {MDXComponents} from "mdx/types";
 
