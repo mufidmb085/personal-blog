@@ -1,12 +1,13 @@
-import LatestArticlesSection from "@/containers/home-page/latest-articles-section";
 import HeroSection from "@/containers/home-page/hero-section";
+import LatestArticleWidgetSection from "@/containers/home-page/latest-article-widget-section";
 
-export default async function Home() {
-
+export default function Home() {
     return (
-        <section className="flex flex-col w-full items-center justify-center gap-16">
-            <HeroSection />
-            <LatestArticlesSection />
-        </section>
+        <div className={"flex flex-col min-h-screen"} id={"home-page"}>
+            <div className={"prose prose-sm sm:prose-base md:prose-lg w-full max-w-screen grow"}>
+                <HeroSection className={"not-prose px-8 sm:px-16"} id={"hero-section"} />
+                <LatestArticleWidgetSection className={"px-8 sm:px-16"} id={"latest-article-widget-section"} />
+            </div>
+        </div>
     );
 }

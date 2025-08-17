@@ -1,6 +1,6 @@
 # MXT Blog
 
-This is a personal blog that built using **Next.js 15 (app directory)** and **HeroUI (v2)**.
+This is a personal blog that built using **Next.js 15 (app directory)** and **DaisyUI**.
 
 ## 🚀 Getting Started
 
@@ -29,15 +29,6 @@ Using pnpm:
 ```bash
 pnpm install
 ```
-
-**Note for pnpm users:**
-HeroUI requires hoisting certain dependencies. Add this to your `.npmrc`:
-
-```bash
-public-hoist-pattern[]=*@heroui/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
 
 ### Run the development server
 

@@ -1,17 +1,16 @@
-import {getTimeGreeting} from "@/utils/Utils";
+import {clsx} from "clsx";
+import Hero from "@/components/home/Hero";
+import {id} from "postcss-selector-parser";
 
-const HeroSection = () => {
+interface HeroSectionProps {
+	className?: string;
+	id?: string;
+}
 
-	const greeting = getTimeGreeting();
-
+const HeroSection: React.FC<HeroSectionProps> = ({ className, id}) => {
 	return (
-		<section className="relative flex flex-col w-full items-center justify-center aspect-[21/9]">
-			<div className="relative z-10 self-start p-8 lg:p-16 pb-64">
-				<div className={"flex flex-col items-start justify-center gap-4 max-w-md"}>
-					<h1 className="text-4xl font-black text-shadow-lg uppercase text-primary">Hi, {greeting}</h1>
-					<p className="text-lg font-light text-foreground">I document my thoughts, ideas, and things I build, mostly as a way to think clearer. But you&#39;re welcome to read along.</p>
-				</div>
-			</div>
+		<section className={clsx(className, id)}>
+			<Hero headline={"From Thought to Screen"} subheadline={"I document my thoughts, ideas, and things I build. Mostly as a way to think clearer."} />
 		</section>
 	)
 }

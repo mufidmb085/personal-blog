@@ -1,50 +1,45 @@
 "use client";
 
-import {Card, CardBody, CardFooter, CardHeader} from "@heroui/card";
-import {Image} from "@heroui/image";
 import {useRouter} from "next/navigation";
-import {useCallback} from "react";
-import {Divider} from "@heroui/divider";
+import React, {useCallback} from "react";
+import {ArticleMetadata} from "@/interfaces/article.model";
+import Image from "next/image";
+import {UserCircleIcon} from "lucide-react";
 
-interface ArticleCardProps {
-	title: string;
-	excerpt?: string;
-	image?: string;
-	author: string;
-	date: string;
-	slug: string;
-}
+const ArticleCard:React.FC<ArticleMetadata> = ({ title, excerpt, image, author, date, slug }) => {
 
-export default function ArticleCard({ title, excerpt, image, author, date, slug }: ArticleCardProps) {
 	const router = useRouter();
-
-	const onPressed = useCallback(() => {
+	const onPressed = useCallback((e: React.MouseEvent<HTMLElement> | React.TouchEvent<HTMLElement>) => {
+		e.preventDefault();
+		e.stopPropagation();
 		router.push(`/blog/articles/${slug}`);
 	}, [router, slug]);
 
+	const day = String(date.getDate()).padStart(2, '0');
+	const month = String(date.getMonth() + 1).padStart(2, '0');
+	const year = date.getFullYear();
+
 	return (
-		<Card className={"border-none bg-transparent max-w-sm h-full m-0 p-0"} disableRipple={true} disableAnimation={true} radius={"none"} shadow={"none"} allowTextSelectionOnPress={false} isPressable={true} onPress={onPressed}>
-			<CardHeader className={"p-0"}>
-				<div className="flex flex-col items-center justify-center gap-6 h-full">
-					<Image alt="Thumbnail" src={image} radius={"md"} sizes={"100%"} isZoomed={true} className="aspect-[16/9] object-cover object-center w-full h-full" />
-					<div className={"flex flex-col self-start items-center justify-center gap-2 bg-primary-100 mb-3"}>
-						<p className="flex self-start items-center text-sm text-content1-foreground font-bold text-primary p-1">{date}</p>
+		<article className={"card card-md not-prose max-w-xs h-full rounded-none text-base-content cursor-pointer select-none"} onClick={onPressed} onTouchStart={onPressed}>
+			<figure>
+				<Image src={image || "/svg/default-article-thumbnail.svg"} width={320} height={320} placeholder={"empty"} alt={"Thumbnail"} className={"aspect-[1/1] bg-neutral rounded-md object-cover object-center"} />
+			</figure>
+			<div className={"card-body justify-between px-0 mx-0 gap-4"}>
+				<h1 className={"card-title link link-hover line-clamp-2"}>{title}</h1>
+				<p className={"font-serif line-clamp-3 max-h-fit"}>{excerpt}</p>
+				<div className={"flex flex-row items-center justify-start space-x-2 font-light text-base-content/75 text-xs"}>
+					<div className={"inline-flex items-center gap-1"}>
+						<div className="avatar">
+							<UserCircleIcon className={"size-5"} />
+						</div>
+						<span className={"truncate"}>{author}</span>
 					</div>
+					<span>•</span>
+					<span>{`${day}-${month}-${year}`}</span>
 				</div>
-			</CardHeader>
-			<CardBody className={"m-0 p-0"}>
-				<div className="flex flex-col items-start justify-start h-full gap-2 w-full">
-					<div className="flex flex-col">
-						<h1 className={"text-xl text-content1-foreground font-bold text-start  line-clamp-3 text-start"}>{title}</h1>
-					</div>
-					<div className="flex flex-col items-start justify-start">
-						<p className={"text-sm text-content1-foreground overflow-hidden text-start line-clamp-7"}>{excerpt}</p>
-					</div>
-				</div>
-			</CardBody>
-			<CardFooter className={"p-0 m-0 pt-4"}>
-				<Divider className={"w-full"} />
-			</CardFooter>
-		</Card>
+			</div>
+		</article>
 	)
 }
+
+export default ArticleCard;

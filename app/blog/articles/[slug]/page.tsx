@@ -1,14 +1,12 @@
-import { getArticleBySlug } from "@/libs/articles";
 import ArticleRenderer from "@/components/blog/articles/ArticleRenderer";
+import {getArticleBySlug} from "@/libs/article";
 
-// @ts-ignore
-export default async function Page({ params }) {
-	const { slug } = await params;
-	const { content, metadata } = await getArticleBySlug(slug);
+export default async function Page({params}: {params: Promise<{ slug: string }>}) {
+	const { slug } = await params
 
 	return (
-		<div className="max-w-3xl">
-			<ArticleRenderer source={content} metadata={metadata} />
+		<div className={"static flex flex-col items-center w-full min-h-screen py-24 px-8 sm:px-0"}>
+			<ArticleRenderer article={await getArticleBySlug(slug)}  />
 		</div>
 	);
 }
