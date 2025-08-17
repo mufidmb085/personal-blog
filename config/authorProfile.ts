@@ -6,9 +6,9 @@ export const authorProfile = {
 	authorAvatar: "MMB",
 	authorEmail: "mufidmb085@gmail.com",
 	authorSocialsLink: [
-		{icon: TwitterIcon, label: "Twitter", href: "https://x.com/mufidmb48"},
-		{icon: FacebookIcon, label: "Facebook", href: "https://facebook.com/mufidmb48"},
-		{icon: InstagramIcon, label: "Instagram", href: "https://instagram/mufidmb38"},
-		{icon: GithubIcon, label: "Github", href: "https://github.com/mufidmb085"},
+		{socialIcon: TwitterIcon, socialName: "Twitter", href: "https://x.com/mufidmb48"},
+		{socialIcon: FacebookIcon, socialName: "Facebook", href: "https://facebook.com/mufidmb48"},
+		{socialIcon: InstagramIcon, socialName: "Instagram", href: "https://instagram/mufidmb38"},
+		{socialIcon: GithubIcon, socialName: "Github", href: "https://github.com/mufidmb085"},
 	]
 }
